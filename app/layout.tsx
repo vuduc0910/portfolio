@@ -1,14 +1,15 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] })
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Richard (Vo Vu Duc) - Senior Fullstack Developer | React, Next.js, Node.js Expert",
+  title:
+    "Richard (Vo Vu Duc) - Senior Fullstack Developer | React, Next.js, Node.js Expert",
   description:
     "Senior Fullstack Developer with 5 years of experience specializing in React, Next.js, Vue, Node.js, NestJS, and AWS. Led teams building blockchain collectibles, mobile apps, and enterprise systems handling 30,000+ concurrent users.",
   keywords: [
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://richardvo.dev",
+    url: "https://richard-vo.com",
     title: "Richard (Vo Vu Duc) - Senior Fullstack Developer",
     description:
       "Senior Fullstack Developer with 5 years of experience specializing in React, Next.js, Vue, Node.js, and AWS. Building scalable applications for 30,000+ concurrent users.",
@@ -46,7 +47,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Richard (Vo Vu Duc) - Senior Fullstack Developer",
-    description: "Senior Fullstack Developer with 5 years of experience in React, Next.js, Vue, Node.js, and AWS.",
+    description:
+      "Senior Fullstack Developer with 5 years of experience in React, Next.js, Vue, Node.js, and AWS.",
     images: ["/avatar.jpg"],
   },
   robots: {
@@ -61,12 +63,12 @@ export const metadata: Metadata = {
     },
   },
   generator: "v0.app",
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
@@ -82,11 +84,14 @@ export default function RootLayout({
               jobTitle: "Senior Fullstack Developer",
               description:
                 "Senior Fullstack Developer with 5 years of experience specializing in React, Next.js, Vue, Node.js, NestJS, and AWS",
-              url: "https://richardvo.dev",
+              url: "https://richard-vo.com",
               image: "/avatar.jpg",
               email: "vuduc1711@gmail.com",
               telephone: "+84328691535",
-              sameAs: ["https://www.linkedin.com/in/richardvo1412/", "https://github.com/vuduc0910"],
+              sameAs: [
+                "https://www.linkedin.com/in/richardvo1412/",
+                "https://github.com/vuduc0910",
+              ],
               knowsAbout: [
                 "JavaScript",
                 "TypeScript",
@@ -118,5 +123,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

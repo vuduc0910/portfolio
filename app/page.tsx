@@ -1,13 +1,14 @@
-import { HeroSection } from "@/components/hero-section"
-import { AboutSection } from "@/components/about-section"
-import { ExperienceSection } from "@/components/experience-section"
-import { SkillsSection } from "@/components/skills-section"
-import { ProjectsSection } from "@/components/projects-section"
-import { ContactSection } from "@/components/contact-section"
-import { Navigation } from "@/components/navigation"
-import { AnimationWrapper } from "@/components/animation-wrapper"
-import { Tech3DBackground } from "@/components/tech-3d-background"
-import { SectionBackground } from "@/components/section-background"
+import { HeroSection } from "@/components/hero-section";
+import { AboutSection } from "@/components/about-section";
+import { ExperienceSection } from "@/components/experience-section";
+import { SkillsSection } from "@/components/skills-section";
+import { ProjectsSection } from "@/components/projects-section";
+import { ContactSection } from "@/components/contact-section";
+import { Navigation } from "@/components/navigation";
+import { AnimationWrapper } from "@/components/animation-wrapper";
+import { SectionBackground } from "@/components/section-background";
+import dynamic from "next/dynamic";
+import { Tech3DBackground } from "@/components/tech-3d-background";
 
 export default function Home() {
   return (
@@ -41,5 +42,5 @@ export default function Home() {
         </SectionBackground>
       </AnimationWrapper>
     </main>
-  )
+  );
 }
