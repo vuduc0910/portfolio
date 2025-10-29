@@ -3,6 +3,7 @@ import { AboutSection } from "@/components/about-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { SkillsSection } from "@/components/skills-section";
 import { ProjectsSection } from "@/components/projects-section";
+import { ResumeSection } from "@/components/resume-section";
 import { ContactSection } from "@/components/contact-section";
 import { Navigation } from "@/components/navigation";
 import { AnimationWrapper } from "@/components/animation-wrapper";
@@ -34,6 +35,11 @@ export default function Home() {
       <AnimationWrapper delay={250} animation="slideRight">
         <SectionBackground variant="accent">
           <ProjectsSection />
+        </SectionBackground>
+      </AnimationWrapper>
+      <AnimationWrapper delay={275} animation="fadeUp">
+        <SectionBackground variant="gradient">
+          <ResumeSection />
         </SectionBackground>
       </AnimationWrapper>
       <AnimationWrapper delay={300} animation="fadeUp">

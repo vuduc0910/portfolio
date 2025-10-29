@@ -41,6 +41,9 @@ export function Navigation() {
             <a href="#projects" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Projects
             </a>
+            <a href="#resume" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Resume
+            </a>
             <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Contact
             </a>
