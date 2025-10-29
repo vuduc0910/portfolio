@@ -1,37 +1,43 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Download, FileText, Award, Briefcase, GraduationCap } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { motion } from "framer-motion";
+import {
+  Download,
+  FileText,
+  Award,
+  Briefcase,
+  GraduationCap,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export function ResumeSection() {
   const handleDownload = () => {
-    const link = document.createElement('a')
-    link.href = '/VOVUDUC_RESUME.pdf'
-    link.download = 'Richard_Vo_Resume.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
+    const link = document.createElement("a");
+    link.href = "/VOVUDUC_RESUME.pdf";
+    link.download = "Richard_Vo_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const highlights = [
     {
       icon: Briefcase,
       title: "5+ Years Experience",
-      description: "Fullstack Development"
+      description: "Fullstack Development",
     },
     {
       icon: Award,
       title: "Team Leadership",
-      description: "Led multiple successful projects"
+      description: "Led multiple successful projects",
     },
     {
       icon: GraduationCap,
       title: "Strong Background",
-      description: "Computer Science & Engineering"
-    }
-  ]
+      description: "Computer Science & Engineering",
+    },
+  ];
 
   return (
     <section id="resume" className="py-20 px-4">
@@ -47,7 +53,8 @@ export function ResumeSection() {
             My Resume
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Download my complete resume to see my full experience, education, and achievements
+            Download my complete resume to see my full experience, education,
+            and achievements
           </p>
         </motion.div>
 
@@ -66,7 +73,9 @@ export function ResumeSection() {
                     <item.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                  <p className="text-muted-foreground text-sm">
+                    {item.description}
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -91,7 +100,8 @@ export function ResumeSection() {
                     Download Complete Resume
                   </h3>
                   <p className="text-muted-foreground mb-6">
-                    Get the full PDF version with detailed information about my skills, experience, and achievements
+                    Get the full PDF version with detailed information about my
+                    skills, experience, and achievements
                   </p>
                   <Button
                     size="lg"
@@ -108,5 +118,5 @@ export function ResumeSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

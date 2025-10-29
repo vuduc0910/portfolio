@@ -8,13 +8,10 @@ import { ContactSection } from "@/components/contact-section";
 import { Navigation } from "@/components/navigation";
 import { AnimationWrapper } from "@/components/animation-wrapper";
 import { SectionBackground } from "@/components/section-background";
-import dynamic from "next/dynamic";
-import { Tech3DBackground } from "@/components/tech-3d-background";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      <Tech3DBackground />
       <Navigation />
       <HeroSection />
       <AnimationWrapper delay={100} animation="fadeUp">
