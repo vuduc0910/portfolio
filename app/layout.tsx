@@ -27,6 +27,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Richard (Vo Vu Duc)" }],
   creator: "Richard (Vo Vu Duc)",
+  icons: {
+    icon: [
+      { url: "/icon.tsx", sizes: "32x32" },
+      { url: "/avatar.jpg", sizes: "any", type: "image/jpeg" },
+    ],
+    apple: "/apple-icon.tsx",
+    shortcut: "/icon.tsx",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
