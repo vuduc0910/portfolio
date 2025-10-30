@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -22,8 +22,14 @@ const projects = [
     ],
     tech: ["React Native", "Expo", "NestJS", "PostgreSQL", "Redis", "AWS"],
     links: [
-      { label: "iOS App", url: "https://apps.apple.com/vn/app/vff-app/id6744911455?l=vi" },
-      { label: "Android App", url: "https://play.google.com/store/apps/details?id=vn.vff.app" },
+      {
+        label: "iOS App",
+        url: "https://apps.apple.com/vn/app/vff-app/id6744911455?l=vi",
+      },
+      {
+        label: "Android App",
+        url: "https://play.google.com/store/apps/details?id=vn.vff.app",
+      },
     ],
   },
   {
@@ -36,7 +42,15 @@ const projects = [
       "Prediction tournament system",
       "Server-side rendering for SEO optimization",
     ],
-    tech: ["React", "Next.js", "NestJS", "PostgreSQL", "Redis", "Blockchain", "AWS"],
+    tech: [
+      "React",
+      "Next.js",
+      "NestJS",
+      "PostgreSQL",
+      "Redis",
+      "Blockchain",
+      "AWS",
+    ],
     links: [
       { label: "VFB Collectible", url: "https://collectibles.vfb.de" },
       { label: "African Legends", url: "https://aflc.fanzeal.com" },
@@ -58,7 +72,8 @@ const projects = [
   },
   {
     title: "IoT Warehouse Management",
-    description: "Automated warehouse management system to track workforce hours and monitor production efficiency.",
+    description:
+      "Automated warehouse management system to track workforce hours and monitor production efficiency.",
     features: [
       "Real-time workforce tracking",
       "Production efficiency monitoring",
@@ -68,7 +83,7 @@ const projects = [
     tech: ["Express.js", "Node.js", "Vue.js", "MongoDB", "AWS"],
     links: [],
   },
-]
+];
 
 export function ProjectsSection() {
   const containerVariants = {
@@ -79,7 +94,7 @@ export function ProjectsSection() {
         staggerChildren: 0.15,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -88,18 +103,112 @@ export function ProjectsSection() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as any,
       },
     },
-  }
+  };
+
+  const cardContentVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1] as any,
+      },
+    },
+  };
+
+  const featureVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const featureItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
+
+  const techVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
+  const techItemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
+  const linksVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const linkItemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
 
   return (
     <section id="projects" className="py-24 px-4 bg-muted/30">
       <div className="container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-[200px_1fr] gap-12">
-          <div className="space-y-2">
-            <h2 className="text-sm uppercase tracking-wider text-muted-foreground">Projects</h2>
-          </div>
+          <motion.div
+            className="space-y-2"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-sm uppercase tracking-wider text-muted-foreground">
+              Projects
+            </h2>
+          </motion.div>
 
           <motion.div
             className="space-y-8"
@@ -110,49 +219,87 @@ export function ProjectsSection() {
           >
             {projects.map((project, index) => (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="p-6 space-y-4 border-border bg-card hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-                  </div>
+                <Card className="p-6 space-y-4 border-border bg-card hover:shadow-lg hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={cardContentVariants}
+                  >
+                    <motion.div className="space-y-2" variants={headerVariants}>
+                      <h3 className="text-xl font-semibold text-foreground">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
+                    </motion.div>
 
-                  <div>
-                    <h4 className="text-sm font-medium text-foreground mb-2">Key Features:</h4>
-                    <ul className="space-y-1 text-sm text-muted-foreground">
-                      {project.features.map((feature, i) => (
-                        <li key={i} className="flex gap-2">
-                          <span className="text-accent">•</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, i) => (
-                      <Badge key={i} variant="outline" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  {project.links.length > 0 && (
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {project.links.map((link, i) => (
-                        <Button key={i} variant="link" size="sm" asChild className="h-auto p-0">
-                          <a
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1 hover:gap-2 transition-all"
+                    <motion.div variants={headerVariants}>
+                      <h4 className="text-sm font-medium text-foreground mb-2">
+                        Key Features:
+                      </h4>
+                      <motion.ul
+                        className="space-y-1 text-sm text-muted-foreground"
+                        variants={featureVariants}
+                      >
+                        {project.features.map((feature, i) => (
+                          <motion.li
+                            key={i}
+                            className="flex gap-2"
+                            variants={featureItemVariants}
                           >
-                            {link.label}
-                            <ExternalLink className="h-3 w-3" />
-                          </a>
-                        </Button>
+                            <span className="text-accent">•</span>
+                            <span>{feature}</span>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
+                    </motion.div>
+
+                    <motion.div
+                      className="flex flex-wrap gap-2"
+                      variants={techVariants}
+                    >
+                      {project.tech.map((tech, i) => (
+                        <motion.div key={i} variants={techItemVariants}>
+                          <Badge
+                            variant="outline"
+                            className="text-xs hover:scale-110 transition-transform"
+                          >
+                            {tech}
+                          </Badge>
+                        </motion.div>
                       ))}
-                    </div>
-                  )}
+                    </motion.div>
+
+                    {project.links.length > 0 && (
+                      <motion.div
+                        className="flex flex-wrap gap-2 pt-2"
+                        variants={linksVariants}
+                      >
+                        {project.links.map((link, i) => (
+                          <motion.div key={i} variants={linkItemVariants}>
+                            <Button
+                              variant="link"
+                              size="sm"
+                              asChild
+                              className="h-auto p-0"
+                            >
+                              <a
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1 hover:gap-2 transition-all"
+                              >
+                                {link.label}
+                                <ExternalLink className="h-3 w-3" />
+                              </a>
+                            </Button>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </motion.div>
                 </Card>
               </motion.div>
             ))}
@@ -160,5 +307,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

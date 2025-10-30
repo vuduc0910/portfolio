@@ -39,6 +39,28 @@ export function ResumeSection() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1] as any,
+      },
+    },
+  };
+
   return (
     <section id="resume" className="py-20 px-4">
       <div className="container max-w-6xl mx-auto">
@@ -46,7 +68,7 @@ export function ResumeSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -58,16 +80,16 @@ export function ResumeSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <motion.div
+          className="grid md:grid-cols-3 gap-6 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
           {highlights.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+            <motion.div key={index} variants={cardVariants}>
+              <Card className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 hover:scale-105 transition-all duration-300 h-full">
                 <CardContent className="p-6 text-center">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <item.icon className="w-6 h-6 text-primary" />
@@ -80,13 +102,13 @@ export function ResumeSection() {
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center"
         >
           <Card className="bg-gradient-to-br from-primary/10 via-purple-500/10 to-blue-500/10 backdrop-blur border-primary/20 max-w-2xl mx-auto">

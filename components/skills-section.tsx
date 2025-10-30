@@ -1,11 +1,29 @@
-"use client"
+"use client";
 
-import { Badge } from "@/components/ui/badge"
-import { motion } from "framer-motion"
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 const skills = {
-  "Front End": ["JavaScript", "TypeScript", "React", "Vue", "Next.js", "Nuxt", "React Native", "Remix"],
-  "Back End": ["Node.js", "Express", "NestJS", "PostgreSQL", "MySQL", "MongoDB", "Prisma", "Mongoose"],
+  "Front End": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Vue",
+    "Next.js",
+    "Nuxt",
+    "React Native",
+    "Remix",
+  ],
+  "Back End": [
+    "Node.js",
+    "Express",
+    "NestJS",
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB",
+    "Prisma",
+    "Mongoose",
+  ],
   "Cloud & AWS": [
     "S3",
     "Fargate",
@@ -21,10 +39,20 @@ const skills = {
     "SES",
   ],
   Other: ["Docker", "GitHub CI/CD", "Bitbucket Pipeline", "Git"],
-}
+};
 
 export function SkillsSection() {
-  const containerVariants = {
+  const categoryVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const badgeContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -32,7 +60,7 @@ export function SkillsSection() {
         staggerChildren: 0.03,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -41,29 +69,46 @@ export function SkillsSection() {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: [0.34, 1.56, 0.64, 1],
+        ease: [0.34, 1.56, 0.64, 1] as any,
       },
     },
-  }
+  };
 
   return (
     <section id="skills" className="py-24 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-[200px_1fr] gap-12">
-          <div className="space-y-2">
-            <h2 className="text-sm uppercase tracking-wider text-muted-foreground">Skills</h2>
-          </div>
+          <motion.div
+            className="space-y-2"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-sm uppercase tracking-wider text-muted-foreground">
+              Skills
+            </h2>
+          </motion.div>
 
-          <div className="space-y-8">
+          <motion.div
+            className="space-y-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={categoryVariants}
+          >
             {Object.entries(skills).map(([category, items]) => (
-              <div key={category} className="space-y-3">
-                <h3 className="text-lg font-semibold text-foreground">{category}</h3>
+              <motion.div
+                key={category}
+                className="space-y-3"
+                variants={itemVariants}
+              >
+                <h3 className="text-lg font-semibold text-foreground">
+                  {category}
+                </h3>
                 <motion.div
                   className="flex flex-wrap gap-2"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  variants={containerVariants}
+                  variants={badgeContainerVariants}
                 >
                   {items.map((skill) => (
                     <motion.div key={skill} variants={itemVariants}>
@@ -76,11 +121,11 @@ export function SkillsSection() {
                     </motion.div>
                   ))}
                 </motion.div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
